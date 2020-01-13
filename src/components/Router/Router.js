@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as B_Router, Route, Switch} from 'react-router-dom';
+import { BrowserRouter, Route, Switch} from 'react-router-dom';
 
 //components
 import NavBar from '../NavBar/Navbar'
@@ -11,7 +11,7 @@ class Router extends Component {
     render() {
         return (
             <div>
-                <B_Router>
+                <BrowserRouter>
                     <NavBar />
 
                     <Switch>
@@ -19,7 +19,7 @@ class Router extends Component {
                         <Route exact path="/series" component={Series}/>
                         <Route exact path="/favorites" component={Favorites}/>
                     </Switch>
-                </B_Router>
+                </BrowserRouter>
             </div>
         );
     }
