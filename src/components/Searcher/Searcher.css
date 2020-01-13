@@ -1,0 +1,11 @@
+.searcher {
+  border: none;
+  width: 100%;
+  padding-left: 50px;
+  font-size: 20px;
+  display: inline;
+}
+
+::-webkit-input-placeholder {
+  color: #b5b9bd;
+}
