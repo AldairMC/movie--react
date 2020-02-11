@@ -1,15 +1,15 @@
 .navbar {
-   height: 80px;
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .navbar a {
-    color: #00bdff;
-    font-size: 25px;
-    text-decoration: none;
-    padding-bottom: 6px;
+  color: #00bdff;
+  font-size: 25px;
+  text-decoration: none;
+  padding-bottom: 6px;
 }
 
 .logo {
