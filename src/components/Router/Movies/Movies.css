@@ -1,0 +1,14 @@
+.grid {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    /* grid-template-rows: 250px 250px; */
+    height: 1000px;
+    grid-row-gap: 25px;
+    grid-column-gap: 20px;
+}
+
+@media (max-width: 1450px) {
+    .grid {
+        grid-template-columns: 100%;
+    }
+}
