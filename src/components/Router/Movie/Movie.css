@@ -1,7 +1,8 @@
 .grid_movie {
     display: grid;
+    height: 250px;
     grid-template-columns: 20% 10% 70%;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: arial,sans-serif 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     box-shadow: 0px 2px #e9e7e7;
 }
 
@@ -15,7 +16,7 @@
 .grid_desp{
     display: grid;
     color: #646f72;
-    grid-template-rows: 10% 20% 40% 30%;
+    grid-template-rows: 20% 20% 30% 30%;
 }
 
 .grid_movie_header{
@@ -28,9 +29,11 @@
 .name_movie{
     justify-self: start;
     align-self: flex-end;
+    font-size: 20px;
 }
 
 .rate_movie{
+    font-size: 20px;
     justify-self: end;
     align-self: flex-end;
 }
@@ -38,7 +41,7 @@
 .grid_evaluation{
     display: grid;
     grid-template-columns: 30% 40% 30%;
-    font-size: 1.15rem;
+    font-size: 14px;
 }
 
 .duration_movie {
@@ -64,7 +67,7 @@
 .grid_abs{
     display: grid;
     grid-template-columns: 70%;
-    font-size: 1.15rem;
+    font-size: 14px;
     align-self: center;
     grid-row-gap: 30px;
     color: #7a8e94;
@@ -77,9 +80,10 @@
 }
 
 .trailer {
-    align-self: center;
-    justify-self: start;
-    padding: 10px 15px;
+    align-self: flex-start;
+    justify-self: flex-start;
+    font-size: 16px;
+    padding: 7.5px 15px 7.5px 15px;
     border-radius: 5px;
     border: solid 2px;
     color: #5fd5ff;
@@ -87,8 +91,8 @@
 }
 
 .favorites {
-    font-size: 22px;
+    font-size: 16px;
     color: #bec6ca;
-    align-self: center;
+    align-self: flex-start;
     justify-self: center;
 }
