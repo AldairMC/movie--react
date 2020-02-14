@@ -87,7 +87,7 @@
     border-radius: 5px;
     border: solid 2px;
     color: #5fd5ff;
-    cursor: pointer;
+    background-color: #fff;
 }
 
 .favorites {
