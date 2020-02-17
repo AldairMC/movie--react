@@ -21,11 +21,13 @@
   margin-right: 40px;
 }
 
-.links a {
+.links .seccion {
   margin-left: 40px;
 }
 
-.links a:focus {
+.links .seccion:focus {
   border-bottom: 3px solid #00bdff;
-} 
+}
+
+
 

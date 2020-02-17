@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import '../Movie/Movie.css';
-import Modal from '../Modal/Modal';
+// import Modal from '../Modal/Modal';
 
 export default class Movie extends Component {
 
@@ -19,19 +19,18 @@ export default class Movie extends Component {
                 this.setState({
                     trailer: result.results[0].key
                 });
-                this.openVideo(this.state.trailer)
+                // this.openVideo(this.state.trailer)
             });
 
     }
 
-    openVideo = (state) => {
-        return (
-            <Modal
-                link={state}
-            />
-        )
-
-    }
+    // openVideo = (state) => {
+    //     return (
+    //         <Modal
+    //             link={state}
+    //         />
+    //     )
+    // }
 
     render() {
         let { original_title, popularity, vote_average, release_date, overview, vote_count, poster_path } = this.props.movies
