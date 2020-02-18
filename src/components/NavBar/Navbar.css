@@ -1,33 +1,36 @@
 .navbar {
   height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.home {
+  align-self: center;
+}
+
+.links{
+  display: grid;
+  align-self: center;
+  justify-content:flex-end;
 }
 
 .seccion {
   color: #00bdff;
   font-size: 25px;
   text-decoration: none;
-  padding-bottom: 6px;
+  padding-bottom: 5px;
 }
 
-.logo {
-  width: 50%;
-  margin-left: 40px;
-}
-
-.links {
-  margin-right: 40px;
-}
-
-.links .seccion {
-  margin-left: 40px;
+.links .midd {
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 .links .seccion:focus {
   border-bottom: 3px solid #00bdff;
 }
 
-
+.links .seccion:hover {
+  border-bottom: 3px solid #00bdff;
+}
 

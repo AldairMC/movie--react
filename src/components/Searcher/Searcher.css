@@ -1,11 +1,21 @@
-.searcher {
-  border: none;
-  width: 100%;
-  padding-left: 50px;
-  font-size: 20px;
-  display: inline;
+.search {
+  display: grid;
+  height: 40px;
+  font-size: 25px;
+  grid-template-columns: 4% 96%;
 }
 
 ::-webkit-input-placeholder {
   color: #b5b9bd;
+
+}
+
+.searcher {
+  border: none;
+  font-size: 20px;
+}
+
+.ico_search {
+  color:  #b5b9bd;
+  align-self: center;
 }

@@ -7,15 +7,15 @@ import logo from "./showApp.PNG"
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <div className="logo">
-        <NavLink className="home" to="/">
-          <img src={logo} alt="ShowApp" />
-        </NavLink>
-      </div>
+      <NavLink className="home" to="/">
+        <img src={logo} alt="ShowApp" />
+      </NavLink>
       <div className="links">
-        <NavLink className="seccion" to='/movies'> Movies</NavLink>
-        <NavLink className="seccion" to='/series'>Series</NavLink>
-        <NavLink className="seccion" to='/favorites'>Favorites </NavLink>
+        <span>
+          <NavLink className="seccion" to='/movies'> Movies</NavLink>
+          <NavLink className="seccion midd" to='/series'>Series</NavLink>
+          <NavLink className="seccion" to='/favorites'>Favorites </NavLink>
+        </span>
       </div>
     </nav>
   );

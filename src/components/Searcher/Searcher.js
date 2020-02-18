@@ -3,12 +3,15 @@ import React, { Component } from 'react';
 import './Searcher.css'
 
 class Searcher extends Component {
-  render(){
+  render() {
     return (
       <React.Fragment>
-        <spam><i className="fas fa-search"></i><input type="text" placeholder={this.props.title} className="searcher"/></spam>
+        <spam className="search">
+          <i className="fas fa-search ico_search"></i>
+          <input type="text" placeholder={this.props.title} className="searcher" />
+        </spam>
       </React.Fragment>
-    );  
+    );
   }
 }
 

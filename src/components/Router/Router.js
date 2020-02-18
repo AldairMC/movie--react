@@ -8,6 +8,7 @@ import Series from './Series/Series';
 import Favorites from './Favorites';
 import Searcher from '../Searcher/Searcher';
 import Movies from './Movies/Movies';
+import Description from '../Description/Description'
 
 require('dotenv').config()
 
@@ -59,6 +60,7 @@ class Router extends Component {
                     <Searcher
                         title="Search for a movie, serie and videos"
                     />
+                    <Description />
                     <Switch>
                         <Route exact path="/" render={() => (
                             <Movies
