@@ -1,0 +1,11 @@
+.description {
+    color: #7a8e94;
+    display: grid;
+    height: 150px;
+}
+
+.description h2 {
+    font-weight: lighter;
+    align-self: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
