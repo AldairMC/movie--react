@@ -9,6 +9,7 @@ import Favorites from './Favorites';
 import Searcher from '../Searcher/Searcher';
 import Movies from './Movies/Movies';
 import Description from '../Description/Description'
+import Filter from '../Filter/Filter'
 
 require('dotenv').config()
 
@@ -16,7 +17,8 @@ class Router extends Component {
 
     state = {
         movies: [],
-        tv: []
+        tv: [],
+        search: []
     }
 
     componentDidMount() {
@@ -52,15 +54,36 @@ class Router extends Component {
             });
     }
 
+    getSearch = (data) => {
+        if (data.length >= 4) {
+            const baseUrl = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${data}&include_adult=false`;
+            fetch(baseUrl)
+                .then((response) => {
+                    return response.json();
+                })
+                .then(result => {
+                    if (result.length !== 0) {
+                        this.setState({
+                            movies: result.results
+                        });
+                    }
+                });
+        } else {
+            this.getMovie()
+        }
+    }
+
     render() {
         return (
             <div>
                 <BrowserRouter>
                     <NavBar />
                     <Searcher
+                        getSearch={this.getSearch}
                         title="Search for a movie, serie and videos"
                     />
                     <Description />
+                    <Filter />
                     <Switch>
                         <Route exact path="/" render={() => (
                             <Movies
