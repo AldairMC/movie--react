@@ -1,4 +1,4 @@
-.navbar {
+/* .navbar {
   height: 80px;
   display: grid;
   grid-template-columns: 50% 50%;
@@ -15,7 +15,7 @@
 }
 
 .seccion {
-  color: #00bdff;
+  color: #7a8e94;
   font-size: 25px;
   text-decoration: none;
   padding-bottom: 5px;
@@ -27,10 +27,108 @@
 }
 
 .links .seccion:focus {
+  color: #00bdff;
   border-bottom: 3px solid #00bdff;
 }
 
 .links .seccion:hover {
   border-bottom: 3px solid #00bdff;
+} */
+
+.nave{
+  height: 50px;
+  position: relative;
 }
 
+.header{
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 100px;
+  width: 100%;
+  box-sizing: border-box;
+  height: 50px;
+  z-index: 10;
+}
+
+.header .logo{
+  color: white;
+  height: 50px;
+  line-height: 50px;
+  font-size: 24px;
+  float: left;
+  font-weight: bold;
+}
+
+.header nav{
+  float: right;
+}
+
+.header nav ul{
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.header nav ul li{
+  list-style: none;
+}
+
+.header nav ul li .a{
+  height: 50px;
+  line-height: 50px;
+  padding: 0 20px;
+  color: black;
+  text-decoration: none;
+  display: block;
+}
+
+.header nav ul li .a:hover{
+  border-bottom: 3px solid #00bdff;
+}
+
+.menu-toggle{
+  color: black;
+  float: right;
+  line-height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  display: none;
+}
+
+@media (max-width: 991px){
+  
+  .header{
+      padding: 0 20px;
+  }
+
+  .menu-toggle{
+      display: block;
+  }
+
+  .header .logo img{
+    height: 40px;
+    width: 150px;
+    
+  }
+
+  .header nav{
+      position: absolute;
+      width: 100%;
+      height: calc(100vh - 50px);
+      background: #333;
+      top: 50px;
+      left: -100%;
+      transition: 0.5s;
+      z-index: 10;
+  }
+
+  .header nav.active{
+      left: 0;
+  }
+
+  .header nav ul{
+      display: block;
+      text-align: center;
+  }
+}
