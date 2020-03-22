@@ -10,6 +10,7 @@ import Searcher from '../Searcher/Searcher';
 import Movies from './Movies/Movies';
 import Description from '../Description/Description'
 import Filter from '../Filter/Filter'
+import Pagination from '../Pagination/Pagiation'
 
 require('dotenv').config()
 
@@ -26,10 +27,10 @@ class Router extends Component {
         this.getSeries()
     }
 
+    URLactual = window.location.pathname;
 
-
-    getMovie = () => {
-        const baseUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`;
+    getMovie = (page = 1) => {
+        const baseUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${page}`;
         fetch(baseUrl)
             .then((response) => {
                 return response.json();
@@ -41,8 +42,8 @@ class Router extends Component {
             });
     }
 
-    getSeries = () => {
-        const baseUrl = `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`;
+    getSeries = (page = 1) => {
+        const baseUrl = `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${page}`;
         fetch(baseUrl)
             .then((response) => {
                 return response.json();
@@ -71,6 +72,18 @@ class Router extends Component {
         } else {
             this.getMovie()
         }
+    }
+
+    getDecPage = (page) => {
+        let URL = window.location.pathname
+        if(URL === "/movies") this.getMovie(page)
+        else if(URL === "/series") this.getSeries(page)
+    }
+
+    getIncPage = (page) => {
+        let URL = window.location.pathname
+        if(URL === "/movies") this.getMovie(page)
+        else if(URL === "/series") this.getSeries(page)
     }
 
     render() {
@@ -103,6 +116,10 @@ class Router extends Component {
                         )} />
                         <Route exact path="/favorites" component={Favorites} />
                     </Switch>
+                    <Pagination 
+                        getDecPage={this.getDecPage}
+                        getIncPage={this.getIncPage}
+                    />
                 </BrowserRouter>
             </div>
         );

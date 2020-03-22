@@ -1,0 +1,34 @@
+.btn_container {
+    display: grid;
+    height: 150px;
+    grid-template-columns: 50% 50%;
+    
+}
+
+.btn_prev {
+    justify-self: flex-end;
+    align-self: center;
+}
+
+.btn_next {
+    justify-self: flex-start;
+    align-self: center;
+}
+
+.btn_container span button {
+    height: 35px;
+    background-color: white;
+    width: 100px;
+    font-size: 15px;
+    border: #00bdff 1px solid;
+    border-radius: 3px;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #00bdff;
+    cursor: pointer;
+}
+
+.btn_container span button:hover {
+    background-color: #EAE9E8;
+    color: #00bdff;
+}
