@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 import '../Movie/Movie.css'
 
 export default class Serie extends Component {
+
+    getFavorite = (data) => {
+        this.props.favorite(data)
+    }
+
     render() {
         let { original_name, popularity, vote_average, first_air_date, overview, vote_count, poster_path } = this.props.series
         if (overview.length >= 50) {
@@ -30,7 +35,7 @@ export default class Serie extends Component {
                     </div>
                     <div className="grid_actions">
                         <span id="trailer" className="trailer">Ver Trailer</span>
-                        <span className="favorites">Agregar a favoritos <i className="fas fa-heart"></i></span>
+                        <span onClick={() => this.getFavorite(this.props.series)} className="favorites">Agregar a favoritos <i className="fas fa-heart"></i></span>
                     </div>
                 </div>
             </div>

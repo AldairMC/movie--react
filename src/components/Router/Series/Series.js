@@ -5,6 +5,11 @@ import '../Movies/Movies.css'
 import Serie from '../Serie/Serie'
 
 export default class Series extends Component {
+
+    favorite = (data) => {
+        this.props.localSerie(data)
+    }
+
     render() {
         let data = this.props.series
         return (
@@ -14,6 +19,7 @@ export default class Series extends Component {
                         <Serie
                             key={key}
                             series={data[key]}
+                            favorite={this.favorite}
                         />
                     ))
                 }

@@ -5,6 +5,11 @@ import '../Movies/Movies.css'
 import Movie from '../Movie/Movie'
 
 export default class Movies extends Component {
+
+    favorite = (data) => {
+        this.props.localMovie(data)
+    }
+    
     render() {
         let data = this.props.movies
         return (
@@ -14,6 +19,7 @@ export default class Movies extends Component {
                         <Movie
                             key={i}
                             movies={this.props.movies[i]}
+                            favorite={this.favorite}
                         />
                     ))
                 }

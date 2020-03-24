@@ -5,7 +5,7 @@ import '../Movie/Movie.css';
 export default class Movie extends Component {
 
     state = {
-        trailer: ''
+        favsMovie: []
     }
 
     hendlesVideo = () => {
@@ -24,13 +24,9 @@ export default class Movie extends Component {
 
     }
 
-    // openVideo = (state) => {
-    //     return (
-    //         <Modal
-    //             link={state}
-    //         />
-    //     )
-    // }
+    getFavorite = (data) => {
+        this.props.favorite(data)
+    }
 
     render() {
         let { original_title, popularity, vote_average, release_date, overview, vote_count, poster_path } = this.props.movies
@@ -60,7 +56,8 @@ export default class Movie extends Component {
                     </div>
                     <div className="grid_actions">
                         <button id="trailer" onClick={this.hendlesVideo} className="trailer">Ver Trailer</button>
-                        <span className="favorites">Agregar a favoritos <i className="fas fa-heart"></i></span>
+                        <span onClick=
+                        {() => this.getFavorite(this.props.movies)} className="favorites">Agregar a favoritos <i className="fas fa-heart"></i></span>
                     </div>
                 </div>
             </div>
