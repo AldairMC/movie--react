@@ -44,7 +44,6 @@
   position: absolute;
   top: 0;
   left: 0;
-  padding: 0 100px;
   width: 100%;
   box-sizing: border-box;
   height: 50px;
@@ -74,7 +73,7 @@
   list-style: none;
 }
 
-.header nav ul li .a{
+.header nav ul li .anchor{
   height: 50px;
   line-height: 50px;
   padding: 0 20px;
@@ -83,7 +82,7 @@
   display: block;
 }
 
-.header nav ul li .a:hover{
+.header nav ul li .anchor:hover{
   border-bottom: 3px solid #00bdff;
 }
 
