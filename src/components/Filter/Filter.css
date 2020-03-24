@@ -14,7 +14,63 @@
     font-weight: 500;
 }
 
+.filter_year {
+    position: relative;
+    display: inline-block;
+  }
+  
 .container_year {
-    
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
 }
+  
+.filter_year:hover .container_year {
+    display: block;
+}
+
+.filter_gender {
+    position: relative;
+    display: inline-block;
+  }
+  
+.container_gender {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+  
+.filter_gender:hover .container_gender {
+    display: block;
+}
+
+.container_year li {
+    list-style: none;
+    cursor: pointer;
+    height: 30px;
+}
+
+.container_year li:hover {
+    color: #5fd5ff;
+}
+
+.container_gender li {
+    list-style: none;
+    cursor: pointer;
+    height: 30px;
+}
+
+.container_gender li:hover {
+    color: #5fd5ff;
+}
+
+
 
