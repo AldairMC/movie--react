@@ -33,6 +33,9 @@ export default class Movie extends Component {
         if (overview.length >= 50) {
             overview = overview.substring(0, 100)
         }
+        if(original_title.length >= 20){
+            original_title = `${original_title.substring(0, 15)}...`
+        }
         return (
             <div className="grid_movie">
                 <div>

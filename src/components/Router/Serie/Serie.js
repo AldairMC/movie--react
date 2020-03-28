@@ -12,6 +12,9 @@ export default class Serie extends Component {
         if (overview.length >= 50) {
             overview = overview.substring(0, 100)
         }
+        if(original_name.length >= 30){
+            original_name = `${original_name.substring(0, 15)}...`
+        }
         return (
             <div className="grid_movie">
                 <div>
