@@ -21,7 +21,6 @@ export default class Movie extends Component {
                 });
                 // this.openVideo(this.state.trailer)
             });
-
     }
 
     getFavorite = (data) => {
@@ -30,21 +29,22 @@ export default class Movie extends Component {
 
     render() {
         let { original_title, popularity, vote_average, release_date, overview, vote_count, poster_path } = this.props.movies
+        let new_title = original_title
         if (overview.length >= 50) {
             overview = overview.substring(0, 100)
         }
         if(original_title.length >= 20){
-            original_title = `${original_title.substring(0, 15)}...`
+            new_title = `${original_title.substring(0, 15)}...`
         }
         return (
             <div className="grid_movie">
                 <div>
-                    <img className="movie_image" src={`https://www.cliver.plus/movies/static/img/w342${poster_path}`} alt={`${original_title}`} />
+                    <img className="movie_image" src={`https://www.cliver.plus/movies/static/img/w342${poster_path}`} alt={`${new_title}`} />
                 </div>
                 <div></div>
                 <div className="grid_desp">
                     <div className="grid_movie_header">
-                        <div className="name_movie">{original_title}</div>
+                        <div title={original_title} className="name_movie">{new_title}</div>
                         <div className="rate_movie">{vote_average}</div>
                     </div>
                     <div className="grid_evaluation">
@@ -58,10 +58,16 @@ export default class Movie extends Component {
                         </p>
                     </div>
                     <div className="grid_actions">
-                        <button id="trailer" onClick={this.hendlesVideo} className="trailer">Ver Trailer</button>
-                        <span onClick=
-                        {() => this.getFavorite(this.props.movies)} className="favorites">Agregar a favoritos <i className="fas fa-heart"></i></span>
-                    </div>
+                        <button id="trailer" onClick={this.hendlesVideo} className="trailer">
+                            <span id="name_trailer">Ver Trailer</span>
+                            <span id="icon_trailer"><i className="fab fa-youtube"></i></span>
+                        </button>
+                        <span onClick={() => this.getFavorite(this.props.movies)} className="favorites" >
+                            <span id="favorite_text">Agregar a favoritos</span> 
+                            <span>   </span>
+                            <i className="fas fa-heart" id="icon_favorite"></i>
+                        </span>
+                    </div>  
                 </div>
             </div>
         )

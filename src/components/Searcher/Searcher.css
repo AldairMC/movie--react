@@ -1,21 +1,33 @@
 .search {
   display: grid;
-  height: 40px;
+  height: 50px;
   font-size: 25px;
   grid-template-columns: 4% 96%;
+  background-color: #f5f7f7;
+  margin-left: -40px;
+  margin-right: -40px;
 }
 
 ::-webkit-input-placeholder {
   color: #b5b9bd;
-
 }
 
 .searcher {
+  margin-left: 40px;
   border: none;
   font-size: 20px;
+  background-color: #f5f7f7;
 }
 
 .ico_search {
+  margin-left: 40px;
   color:  #b5b9bd;
   align-self: center;
+}
+
+
+@media (max-width: 668px){
+  .search {
+    grid-template-columns: 15% 85%;
+  }
 }

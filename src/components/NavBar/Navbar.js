@@ -1,72 +1,68 @@
-/* jshint ignore:start */
-import React, { Component } from 'react';
-import './Navbar.css'
+import React, { useState, useEffect } from "react";
+import "./Navbar.css";
+import { CSSTransition } from "react-transition-group";
 import { NavLink } from 'react-router-dom';
 import logo from "./showApp.PNG"
 
-class Navbar extends Component {
+export default function Header() {
+  const [isNavVisible, setNavVisibility] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
 
-  handlerMovie = (evt) => {
-    this.props.setMovie(evt.target.text)
-  }
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 1080px)");
+    mediaQuery.addListener(handleMediaQueryChange);
+    handleMediaQueryChange(mediaQuery);
 
-  handlerSerie = (evt) => {
-    this.props.setSerie(evt.target.text)
-  }
+    return () => {
+      mediaQuery.removeListener(handleMediaQueryChange);
+    };
+  }, []);
 
-  handlerHome = (evt) => {
-    let home = '/'
-    this.props.setHome(home)
-  }
+  // const handlerMovie = (evt) => {
+  //   this.props.setMovie(evt.target.text)
+  // }
 
-  render() {
-    return (
-      <div className="nave">
-        <header className="header">
-          <NavLink className="" to="/">
-            <img onClick={(evt) => this.handlerHome(evt)} src={logo} alt="ShowApp" />
-          </NavLink>
-          {/* <div className="logo">
-            <img src={logo} alt="ShowApp" />
-          </div> */}
-          <nav>
-            <ul>
-              <li onClick={(evt) => this.handlerMovie(evt)}><NavLink className="anchor" to='/movies'>Movies</NavLink></li>
-              <li onClick={(evt) => this.handlerSerie(evt)}><NavLink className="anchor" to='/series'>Series</NavLink></li>
-              <li><NavLink className="anchor" to='/favorites'>Favorites </NavLink></li>
-            </ul>
-          </nav>
-          <div className="menu-toggle">
-            <i className="fas fa-bars"></i>
-          </div>
-        </header>
-      </div>
-    );
-  }
+  // const handlerSerie = (evt) => {
+  //   this.props.setSerie(evt.target.text)
+  // }
+
+  // const handlerHome = () => {
+  //   let home = '/'
+  //   this.props.setHome(home)
+  // }
+
+  const handleMediaQueryChange = mediaQuery => {
+    if (mediaQuery.matches) {
+      setIsSmallScreen(true);
+    } else {
+      setIsSmallScreen(false);
+    }
+  };
+
+  const toggleNav = () => {
+    setNavVisibility(!isNavVisible);
+  };
+
+  return (
+    <header className="Header">
+      <img src={logo} className="home" /*onClick={() => handlerHome()}*/ alt="logo" />
+      <CSSTransition
+        in={!isSmallScreen || isNavVisible}
+        timeout={350}
+        classNames="NavAnimation"
+        unmountOnExit
+      >
+        <nav className="Nav">
+          <NavLink className="seccion" /*onClick={(evt) => handlerMovie(evt)}*/ to='/movies'> Movies</NavLink>
+          <NavLink className="seccion" /*onClick={(evt) => handlerSerie(evt)}*/ to='/series'>Series</NavLink>
+          <NavLink className="seccion" to='/favorites'>Favorites </NavLink>
+        </nav>
+      </CSSTransition>
+      <button onClick={toggleNav} className="menu-toggle">
+        <span>
+          <i className="fas fa-bars"></i>
+        </span>
+      </button>
+    </header>
+  );
 }
-
-export default Navbar;
-
-
-// const Navbar = () => {
-
- 
-
-//   return (
-    
-    // <nav className="navbar">
-    //   <NavLink className="home" to="/">
-    //     <img src={logo} alt="ShowApp" />
-    //   </NavLink>
-    //   <div className="links">
-    //     <span>
-    //       <NavLink className="seccion" to='/movies'> Movies</NavLink>
-    //       <NavLink className="seccion midd" to='/series'>Series</NavLink>
-    //       <NavLink className="seccion" to='/favorites'>Favorites </NavLink>
-    //     </span>
-    //   </div>
-    // </nav>
-//   );
-// };
-
-// export default Navbar

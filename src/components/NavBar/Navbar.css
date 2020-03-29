@@ -1,133 +1,107 @@
-/* .navbar {
-  height: 80px;
+.Header {
+  top: 0;
+  margin-top: 20px;
+  max-height: 70px;
+  width: 100vw;
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-areas: "logo nav";
+  grid-template-columns: 70% 30%;
+  max-width: 100%;
 }
 
 .home {
   align-self: center;
 }
 
-.links{
+.Nav {
   display: grid;
-  align-self: center;
-  justify-content:flex-end;
+  grid-area: nav;
+  grid-template-columns: 30% 30% 30% 10%;
+  align-items: center;
+  justify-items: center;
 }
 
-.seccion {
+.Nav .seccion {
   color: #7a8e94;
-  font-size: 25px;
+  font-size: 20px;
   text-decoration: none;
-  padding-bottom: 5px;
 }
 
-.links .midd {
-  margin-left: 50px;
-  margin-right: 50px;
-}
-
-.links .seccion:focus {
+.Nav .seccion:hover {
   color: #00bdff;
+  padding-bottom: 3px;
   border-bottom: 3px solid #00bdff;
 }
 
-.links .seccion:hover {
-  border-bottom: 3px solid #00bdff;
-} */
-
-.nave{
-  height: 50px;
-  position: relative;
-}
-
-.header{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  box-sizing: border-box;
-  height: 50px;
-  z-index: 10;
-}
-
-.header .logo{
-  color: white;
-  height: 50px;
-  line-height: 50px;
-  font-size: 24px;
-  float: left;
-  font-weight: bold;
-}
-
-.header nav{
-  float: right;
-}
-
-.header nav ul{
-  margin: 0;
-  padding: 0;
-  display: flex;
-}
-
-.header nav ul li{
-  list-style: none;
-}
-
-.header nav ul li .anchor{
-  height: 50px;
-  line-height: 50px;
-  padding: 0 20px;
-  color: black;
-  text-decoration: none;
-  display: block;
-}
-
-.header nav ul li .anchor:hover{
-  border-bottom: 3px solid #00bdff;
-}
-
-.menu-toggle{
-  color: black;
-  float: right;
-  line-height: 50px;
-  font-size: 24px;
-  cursor: pointer;
+.menu-toggle {
   display: none;
+  grid-area: burger;
+  margin: 0 20px 0 0;
+  padding: 0;
+  justify-self: end;
+  font-size: 40px;
+  border: none;
+  background: none;
+  outline: none;
+  transition: 0.1s;
 }
 
-@media (max-width: 991px){
+.menu-toggle:active {
+  transform: scale(1.2);
+}
+
+@media (max-width: 1080px) {
+  .Header {
+    grid-template-areas: "logo burger" "nav nav";
+  }
   
-  .header{
-      padding: 0 20px;
+  .Nav {
+    grid-template-rows: repeat(4, auto);
+    grid-template-columns: none;
+    grid-row-gap: 20px;
+    z-index: 1;
+    padding: 30px 0 30px;
+    background: rgba(40, 44, 47, 0.95);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
 
-  .menu-toggle{
-      display: block;
+  .Nav .seccion {
+    color: #fff;
   }
 
-  .header .logo img{
-    height: 40px;
+  .Nav .seccion:hover {
+    color: #00bdff;
+  }
+
+  .menu-toggle {
+    display: inline;
+    color: #00bdff;
+  }
+}
+
+@media (max-width: 668px){
+  .home {
+    height: 30px;
     width: 150px;
-    
   }
+}
 
-  .header nav{
-      position: absolute;
-      width: 100%;
-      height: calc(100vh - 50px);
-      background: #333;
-      top: 50px;
-      left: -100%;
-      transition: 0.5s;
-      z-index: 10;
-  }
-
-  .header nav.active{
-      left: 0;
-  }
-
-  .header nav ul{
-      display: block;
-      text-align: center;
-  }
+.NavAnimation-enter {
+  opacity: 0;
+  transform: scale(0.5);
+}
+.NavAnimation-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 350ms, transform 350ms;
+}
+.NavAnimation-exit {
+  opacity: 1;
+}
+.NavAnimation-exit-active {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 350ms, transform 350ms;
 }

@@ -195,6 +195,7 @@ class Router extends Component {
                         setMovie={this.setMovie}
                         setHome={this.setHome}
                     />
+                    <br></br>
                     <Searcher
                         getSearch={this.getSearch}
                         title="Search for a movie, serie and videos"

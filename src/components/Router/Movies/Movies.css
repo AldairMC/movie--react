@@ -1,12 +1,15 @@
 .grid {
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-row-gap: 25px;
+    grid-row-gap: 35px;
     grid-column-gap: 20px;
 }
 
-@media (max-width: 1250px) {
+@media (max-width: 1150px) {
     .grid {
+        display: grid;
         grid-template-columns: 100%;
+        grid-row-gap: 50px;
+        grid-column-gap: 20px;
     }
 }

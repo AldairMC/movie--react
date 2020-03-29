@@ -37,9 +37,16 @@ export default class Serie extends Component {
                         </p>
                     </div>
                     <div className="grid_actions">
-                        <span id="trailer" className="trailer">Ver Trailer</span>
-                        <span onClick={() => this.getFavorite(this.props.series)} className="favorites">Agregar a favoritos <i className="fas fa-heart"></i></span>
-                    </div>
+                        <button id="trailer" onClick={this.hendlesVideo} className="trailer">
+                            <span id="name_trailer">Ver Trailer</span>
+                            <span id="icon_trailer"><i className="fab fa-youtube"></i></span>
+                        </button>
+                        <span onClick={() => this.getFavorite(this.props.movies)} className="favorites" >
+                            <span id="favorite_text">Agregar a favoritos</span> 
+                            <span>   </span>
+                            <i className="fas fa-heart" id="icon_favorite"></i>
+                        </span>
+                    </div>  
                 </div>
             </div>
         )

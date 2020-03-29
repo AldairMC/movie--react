@@ -72,5 +72,11 @@
     color: #5fd5ff;
 }
 
+@media (max-width: 510px){
+    .container {
+        grid-template-columns: 100%;
+    }
+}
+
 
 
