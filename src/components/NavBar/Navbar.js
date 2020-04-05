@@ -4,7 +4,7 @@ import { CSSTransition } from "react-transition-group";
 import { NavLink } from 'react-router-dom';
 import logo from "./showApp.PNG"
 
-export default function Header() {
+export default function Header(props) {
   const [isNavVisible, setNavVisibility] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
@@ -18,18 +18,18 @@ export default function Header() {
     };
   }, []);
 
-  // const handlerMovie = (evt) => {
-  //   this.props.setMovie(evt.target.text)
-  // }
+  const handlerMovie = (evt) => {
+    props.setMovie(evt.target.text)
+  }
 
-  // const handlerSerie = (evt) => {
-  //   this.props.setSerie(evt.target.text)
-  // }
+  const handlerSerie = (evt) => {
+    props.setSerie(evt.target.text)
+  }
 
-  // const handlerHome = () => {
-  //   let home = '/'
-  //   this.props.setHome(home)
-  // }
+  const handlerHome = () => {
+    let home = '/'
+    props.setHome(home)
+  }
 
   const handleMediaQueryChange = mediaQuery => {
     if (mediaQuery.matches) {
@@ -45,7 +45,7 @@ export default function Header() {
 
   return (
     <header className="Header">
-      <img src={logo} className="home" /*onClick={() => handlerHome()}*/ alt="logo" />
+      <img src={logo} className="home" onClick={() => handlerHome()} alt="logo" />
       <CSSTransition
         in={!isSmallScreen || isNavVisible}
         timeout={350}
@@ -53,8 +53,8 @@ export default function Header() {
         unmountOnExit
       >
         <nav className="Nav">
-          <NavLink className="seccion" /*onClick={(evt) => handlerMovie(evt)}*/ to='/movies'> Movies</NavLink>
-          <NavLink className="seccion" /*onClick={(evt) => handlerSerie(evt)}*/ to='/series'>Series</NavLink>
+          <NavLink className="seccion" onClick={(evt) => handlerMovie(evt)} to='/movies'> Movies</NavLink>
+          <NavLink className="seccion" onClick={(evt) => handlerSerie(evt)} to='/series'>Series</NavLink>
           <NavLink className="seccion" to='/favorites'>Favorites </NavLink>
         </nav>
       </CSSTransition>
